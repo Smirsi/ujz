@@ -46,14 +46,14 @@ elif ss.logged_in and ss.user == "Turnierhelfer":
         {
             "": [overview_page],
             "Wettkampftisch": [scoreboard_page],
-            "Turnier": [results_page],
+            "Turnier": [fighter_page, results_page],
         }
     )
 elif ss.logged_in and ss.user == "Turnierteilnehmer":
     pg = st.navigation(
         {
             "": [overview_page],
-            "Turnier": [results_page],
+            "Turnier": [fighter_page, results_page],
         }
     )
 else:

@@ -14,7 +14,8 @@ def login():
     # todo: Turnierauswahl automatisch mit Daten aus xml
 
 
-st.set_page_config(page_title='UJZ Turniermanager', layout="wide", page_icon="🏆")
+st.set_page_config(page_title='UJZ Turniermanager', layout="wide", page_icon='images/UJZ_Logo.jpg')#"🏆")
+#st.logo(image='images/UJZ_Logo_large.jpg', icon_image='images/UJZ_Logo.jpg', size='large')
 c1, c2 = st.columns([25, 3], vertical_alignment="center")
 with c1:
     st.markdown("## UJZ Turniermanager")

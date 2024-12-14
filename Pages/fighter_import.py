@@ -1,3 +1,4 @@
+import numpy as np
 import streamlit as st
 from streamlit import session_state as ss
 import pandas as pd
@@ -32,11 +33,13 @@ def csv_to_xml(csv_data, xml_file):
         if existing_fighter is None:
             fighter = ET.SubElement(tournament, "fighter", firstname=row['Vorname'], lastname=row['Nachname'])
             ET.SubElement(fighter, "club").text = row['Verein/Sektion']
+            ET.SubElement(fighter, "gender").text = row['Geschlecht']
             ET.SubElement(fighter, "birthyear").text = str(row['Jahrgang'])
             ET.SubElement(fighter, "weight").text = str(row['Gewicht'])
-            ET.SubElement(fighter, "note").text = row['Bemerkung']
+            ET.SubElement(fighter, "note").text = row['Bemerkung'] if row['Bemerkung'] is not np.nan else '-'
         else:
             existing_fighter.find("club").text = row['Verein/Sektion']
+            existing_fighter.find("gender").text = row['Geschlecht']
             existing_fighter.find("birthyear").text = str(row['Jahrgang'])
             existing_fighter.find("weight").text = str(row['Gewicht'])
             existing_fighter.find("note").text = row['Bemerkung']
@@ -46,10 +49,10 @@ def csv_to_xml(csv_data, xml_file):
 
 
 # Funktion, um die XML-Datei in einen DataFrame zu konvertieren
-def xml_to_dataframe(xml_file, tournament_date):
+def xml_to_dataframe(xml_file):
     tree = ET.parse(xml_file)
     root = tree.getroot()
-    tournament = root.find(f"tournament[@date='{tournament_date}']")
+    tournament = root.find(f"tournament[@date='{ss.tournament_date}']")
     if tournament is None:
         return pd.DataFrame([])
 
@@ -59,6 +62,7 @@ def xml_to_dataframe(xml_file, tournament_date):
             "Vorname": fighter.attrib["firstname"],
             "Nachname": fighter.attrib["lastname"],
             "Verein/Sektion": fighter.find("club").text,
+            "Geschlecht": fighter.find("gender").text,
             "Jahrgang": int(fighter.find("birthyear").text),
             "Gewicht": float(fighter.find("weight").text),
             "Bemerkung": fighter.find("note").text
@@ -77,7 +81,8 @@ def dataframe_to_xml(dataframe, xml_file, tournament_date):
         fighter = tournament.find(f"fighter[@firstname='{row['Vorname']}'][@lastname='{row['Nachname']}']")
         if fighter is not None:
             fighter.find("club").text = row['Verein/Sektion']
-            fighter.find("birthyear").text = str(row['Jahrgang'])
+            fighter.find("gender").text = row['Geschlecht']
+            fighter.find("birthyear").text = str(int(row['Jahrgang']))
             fighter.find("weight").text = str(row['Gewicht'])
             fighter.find("note").text = row['Bemerkung']
 
@@ -90,13 +95,15 @@ def add_new_fighter():
     vorname = st.text_input("Vorname")
     nachname = st.text_input("Nachname")
     verein = st.text_input("Verein/Sektion")
+    geschlecht = st.text_input("Geschlecht")
     jahrgang = st.number_input("Jahrgang", min_value=1900, max_value=2100, step=1, value=2014)
     gewicht = st.number_input("Gewicht", min_value=0.0, step=0.1, value=30.0)
     bemerkung = st.text_input("Bemerkung")
     if st.button('Kämpfer hinzufügen', type='primary', use_container_width=True):
         new_fighter = pd.DataFrame([{"Vorname": vorname, "Nachname": nachname, "Verein/Sektion": verein,
-                                     "Jahrgang": int(jahrgang), "Gewicht": float(gewicht), "Bemerkung": bemerkung}])
-        csv_to_xml(new_fighter, xml_tournament_file)
+                                     "Geschlecht": geschlecht, "Jahrgang": int(jahrgang), "Gewicht": float(gewicht),
+                                     "Bemerkung": bemerkung}])
+        csv_to_xml(new_fighter, ss.xml_tournament_file)
         st.rerun()
 
 
@@ -107,15 +114,14 @@ def add_multiple_fighters():
         if csv_files:
             for file in csv_files:
                 csv = pd.read_csv(BytesIO(file.getvalue()), encoding="utf-8", delimiter=';', decimal=',')
-                csv_to_xml(csv, xml_tournament_file)
-                ss.df_fighter = xml_to_dataframe(xml_tournament_file, ss.tournament_date)
+                csv_to_xml(csv, ss.xml_tournament_file)
+                ss.df_fighter = xml_to_dataframe(ss.xml_tournament_file)
         st.rerun()
 
 
 st.title("Kämpfer verwalten")
 # Streamlit-Anwendung
-xml_tournament_file = "tournaments.xml"
-ss.df_fighter = xml_to_dataframe(xml_tournament_file, ss.tournament_date)
+ss.df_fighter = xml_to_dataframe(ss.xml_tournament_file)
 if not ss.df_fighter.empty:
     edited_dataframe = st.data_editor(ss.df_fighter, num_rows="dynamic", use_container_width=True, hide_index=True,
                                       column_config={
@@ -144,5 +150,5 @@ with col2:
         add_multiple_fighters()
 with col3:
     if st.button('Änderungen speichern', type='primary', use_container_width=True) and not ss.df_fighter.empty:
-        dataframe_to_xml(edited_dataframe, xml_tournament_file, ss.tournament_date)
+        dataframe_to_xml(edited_dataframe, ss.xml_tournament_file, ss.tournament_date)
         st.toast("Änderungen wurden gespeichert.")

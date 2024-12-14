@@ -1,19 +1,70 @@
-﻿Vorname;Nachname;Verein/Sektion;Jahrgang;Gewicht;Bemerkung
-Konrad;Walchshofer;UJZ Helfenberg;2015;42,8;x
-A;DGDFG;UJZ Helfenberg;2014;41,1;x
-B;WER;UJZ Helfenberg;2017;47,2;x
-sdf;SDF;UJZ Helfenberg;2015;49,5;x
-dsf;sdf;UJZ Niederwaldkirchen;2016;46,2;x
-fds;sad;UJZ Niederwaldkirchen;2014;35,5;x
-fds;w;UJZ Niederwaldkirchen;2014;46,6;x
-dsf;wqer;UJZ Niederwaldkirchen;2017;23;x
-sfwerfewr;saf;UJZ Niederwaldkirchen;2016;48;x
-sdv;asd;UJZ Niederwaldkirchen;2017;29,7;x
-sdvwer;asd;UJZ Ottensheim;2017;39,4;x
-wert;er;UJZ Ottensheim;2017;22,1;x
-sdF;sdfds;UJZ Ottensheim;2015;26,1;x
-wert;sdaf;UJZ St. Martin;2016;39,8;x
-SDF;ret;UJZ St. Martin;2015;50,7;x
-wert;sadf;UJZ St. Martin;2015;37,5;x
-SDF;erw;UJZ St. Martin;2016;31,1;x
-wert;werew;UJZ St. Martin;2016;28,7;x
+Vorname;Nachname;Verein/Sektion;Geschlecht;Jahrgang;Gewicht;Bemerkung
+Konrad;Walchshofer;UJZ Helfenberg;m;2015;42,8;x
+A;DGDFG;UJZ Helfenberg;m;2014;41,1;x
+B;WER;UJZ Helfenberg;m;2017;47,2;x
+sdf;SDF;UJZ Helfenberg;m;2015;49,5;x
+dsf;sdf;UJZ Niederwaldkirchen;w;2016;46,2;x
+fds;sad;UJZ Niederwaldkirchen;w;2014;35,5;x
+fds;w;UJZ Niederwaldkirchen;m;2014;46,6;x
+dsf;wqer;UJZ Niederwaldkirchen;w;2017;23;x
+sfwerfewr;saf;UJZ Niederwaldkirchen;w;2016;48;x
+sdv;asd;UJZ Niederwaldkirchen;m;2017;29,7;x
+sdvwer;asd;UJZ Ottensheim;w;2017;39,4;x
+wert;er;UJZ Ottensheim;w;2017;22,1;x
+sdF;sdfds;UJZ Ottensheim;w;2015;26,1;x
+wert;sdaf;UJZ St. Martin;m;2016;39,8;x
+SDF;ret;UJZ St. Martin;m;2015;50,7;x
+wert;sadf;UJZ St. Martin;m;2015;37,5;x
+SDF;erw;UJZ St. Martin;w;2016;31,1;x
+wert;werew;UJZ St. Martin;m;2016;28,7;x
+uigzftgdf;hsdfhgr;UJZ Niederwaldkirchen;m;2016;25,2;
+tshzuj;siofhsdf;UJZ Niederwaldkirchen;m;2017;21,3;
+weaf;sdofihsdf;UJZ Niederwaldkirchen;m;2014;28,8;
+werew;sfddsf;UJZ Niederwaldkirchen;m;2014;27,1;
+tuzkuk;weretz;UJZ Niederwaldkirchen;w;2014;24,8;
+dsfsdfg;dsfv;UJZ Niederwaldkirchen;w;2017;25,8;
+dfhg;thr;UJZ Niederwaldkirchen;m;2017;33,7;
+werewr;asDFERHZWE;UJZ St. Martin;w;2015;39,3;
+fgjhgzhfk;SAFAWET;UJZ St. Martin;w;2015;32,6;
+wesdf;SF;UJZ St. Martin;m;2017;21,1;
+sdfdsf;egrdg;UJZ St. Martin;w;2016;25,1;
+ghj;dsfg4;UJZ St. Martin;w;2015;24,1;
+stdf;fd;UJZ St. Martin;w;2014;30,4;
+tzjzt;dfg;UJZ Ottensheim;m;2017;34,8;
+hgjfmnfx;dsfgrtez;UJZ Ottensheim;m;2014;30,7;
+tzjztj;ertgert;UJZ Ottensheim;m;2017;29,8;
+rtd;regregt;UJZ Ottensheim;w;2016;24,9;
+rtzez;rge;UJZ Ottensheim;m;2017;38,5;
+dfg;dfgdfsg;UJZ Helfenberg;m;2017;38,8;
+retz re;safdsaf;UJZ Helfenberg;m;2018;20;
+reztrtezrt;dfg;UJZ Helfenberg;m;2018;22,5;
+retzreu;sdfsdf;UJZ Helfenberg;m;2018;31;
+trdh;fgh;UJZ Helfenberg;w;2017;29,7;
+dtzjh;fgh;UJZ Helfenberg;w;2018;37,7;
+tzjztutzu;sdvf;UJZ Helfenberg;m;2016;38,9;
+esrtzesrzt;er;UJZ Helfenberg;w;2015;29,3;
+rsgdsfg;drg;UJZ Helfenberg;w;2018;38,6;
+erterst;dhr6u;UJZ ADM;m;2017;21,8;
+sftvcx;dfsg;UJZ ADM;w;2017;29,5;
+oiugzft;56dsfg;UJZ ADM;w;2017;32,1;
+vbcnvn;dfghfgdh;UJZ ADM;w;2016;32,9;
+rxnb;fcxbgfghdsfh;UJZ ADM;m;2015;37,3;
+skvbcysd;fgdhgfdh;UJZ ADM;m;2018;28,8;
+sthgf;d;UJZ ADM;m;2015;25,2;
+fgdhukz;gydfg;UJZ ADM;w;2014;37,3;
+rttuxf;fydbv;UJZ ADM;m;2017;20,1;
+gdjhuidt;drg;UJZ ADM;m;2018;38;
+fdg;bg;UJZ ADM;m;2014;33,7;
+xfgnzgrst;dsg;UJZ ADM;m;2018;38,6;
+cghnfzj;dfgdfg;UJZ ADM;m;2016;29,5;
+cnzdfgh;dsfg;UJZ ADM;w;2015;24,9;
+fghjdghj;dfgyvb;UJZ ADM;w;2015;27,3;
+fgntzfuz;dfg;UJZ ADM;m;2016;37,7;
+ogbljfh;ydgfdfg;UJZ ADM;w;2015;26,8;
+fhkdlr;dfgdsf;UJZ ADM;w;2014;25,9;
+dblptrzo;dfsge;UJZ ADM;m;2015;31,5;
+dfäüghpkz;dfgsdfgdfg;UJZ ADM;w;2015;24,5;
+ädfghk;dfgdfyg;UJZ ADM;w;2017;38,6;
+sdfghk;dyfgy;UJZ ADM;w;2015;24,7;
+dwiiuluz;fgy;UJZ ADM;m;2017;35,6;
+dsogifser;ygf;UJZ ADM;m;2015;36,4;

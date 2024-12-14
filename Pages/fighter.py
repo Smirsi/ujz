@@ -4,8 +4,7 @@ from streamlit import session_state as ss
 
 
 st.title("Teilnehmer")
-xml_tournament_file = "tournaments.xml"
-ss.df_fighter = xml_to_dataframe(xml_tournament_file, ss.tournament_date)
+ss.df_fighter = xml_to_dataframe(ss.xml_tournament_file)
 if not ss.df_fighter.empty:
     edited_dataframe = st.dataframe(ss.df_fighter, use_container_width=True, hide_index=True,
                                     column_config={

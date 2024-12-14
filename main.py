@@ -8,10 +8,12 @@ def login():
     ss['user'] = st.selectbox('User auswählen', ['Turnierleitung', 'Turnierhelfer', 'Trainer', 'Turnierteilnehmer'])
     if st.button('Anmelden', type='primary', use_container_width=True):
         ss.tournament_date = "2024-12-15"
+        ss.xml_tournament_file = "tournaments.xml"
         ss.logged_in = True
         st.rerun()
     # todo: anmeldung hinzufügen
     # todo: Turnierauswahl automatisch mit Daten aus xml
+    # todo: Für Trainer Sektion auswählen und Kämpfer highlighten
 
 
 st.set_page_config(page_title='UJZ Turniermanager', layout="wide", page_icon='images/UJZ_Logo.jpg')#"🏆")
